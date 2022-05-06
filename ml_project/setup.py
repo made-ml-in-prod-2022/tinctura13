@@ -5,6 +5,6 @@ setup(
     packages=find_packages(),
     version='0.1.0',
     description='production ready ml project',
-    author='[A[A',
+    author='Vova Semerikov',
     license='',
 )
