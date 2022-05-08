@@ -46,4 +46,35 @@ Project Organization
 
 --------
 
+### Usage for the project
+------------
+
+Create virtual environment for the project (default name `.venv`):
+```
+make create_environment
+```
+Install necessary packages:  
+```
+make requirements
+```
+Make exploratory report and save it to `reports/`:  
+```
+make report
+```  
+Train model (LogisticRegression):  
+```
+make train-lr
+```  
+Train model (RandomForest):  
+```
+make-rf
+```  
+All artifacts after training are saved to the `models/`  
+  
+Model inference:  
+```
+make inference
+```  
+
+------------
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
