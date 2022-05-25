@@ -1,7 +1,6 @@
 ml-project: online inference  
 ==============================  
-  
-ML in prod course at MADE 2022  
+
   
 Project Organization  
 ------------  
