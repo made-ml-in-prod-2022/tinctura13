@@ -67,7 +67,7 @@ make train-lr
 ```  
 Train model (RandomForest):  
 ```
-make-rf
+make train-rf
 ```  
 All artifacts after training are saved to the `models/`  
   
