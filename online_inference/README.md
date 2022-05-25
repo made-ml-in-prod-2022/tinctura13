@@ -38,7 +38,7 @@ Project Organization
 
 #### Tests  
 
-    pytest -v --cov  
+    pytest -v  
 
 #### Make requests  
 
@@ -46,10 +46,11 @@ Project Organization
 
 #### Docker image optimization.
 
-At first attempt I've just built the image and it was about 1.4Gb
-What I've tried:
-    Slim version of python 3.9, then slim version of python 3.8 and stopped on python 3.6-slim
-    Removed a lot of unnecessary packages from requirements
-    Made as many layers as possible (I think that it's still possible to optimize copy commands)
-As a result I acieved about 0.4gb size at my local storage 
-Later will push it to docker hub and will check how it goes
+At first attempt I've just built the image and it was about 1.4Gb  
+What I've tried:  
+- Slim version of python 3.9, then slim version of python 3.8 and stopped on python 3.6-slim  
+- Removed a lot of unnecessary packages from requirements  
+- Made as many layers as possible (I think that it's still possible to optimize copy commands)  
+
+As a result I acieved about 0.4gb size at my local storage   
+Later will push it to docker hub and will check how it goes  
