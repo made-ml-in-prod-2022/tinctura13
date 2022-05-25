@@ -1,17 +1,16 @@
 import logging
 import os
-import sched
 from typing import NoReturn
 
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
 
-from src.features.build_features import deserialize_transformer, make_features
 from src.configs.infer_params import (InferencePipelineParams,
                                       InferencePipelineParamsSchema)
-from src.utils.utils import deserialize_model
+from src.features.build_features import deserialize_transformer, make_features
 from src.models.predict_model import predict_model
+from src.utils.utils import deserialize_model
 
 logger = logging.getLogger("infer_pipeline")
 formatter = logging.Formatter("%(asctime)s %(user)-8s %(levelname)s: %(message)s")
@@ -27,7 +26,7 @@ def infer_pipeline(params: InferencePipelineParams) -> NoReturn:
     logger.info(f"transformed data shape is: {transformed_data.shape}")
     
     model = deserialize_model(params.model_path)
-    predictions = predict_model(model, transformed_data)
+    predictions, _ = predict_model(model, transformed_data)
     logger.info(f"predictions shape is: {predictions.shape}")
     pd.DataFrame(predictions).to_csv(params.predictions_path, header=False)
     logger.info(f"predictions saved to {params.predictions_path}")

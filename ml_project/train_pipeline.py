@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from typing import Dict
 
 import hydra
 import pandas as pd
@@ -19,7 +20,7 @@ logger = logging.getLogger("train_pipeline")
 logger.setLevel(logging.INFO)
 
 
-def train_pipeline(params: TrainingPipelineParams):
+def train_pipeline(params: TrainingPipelineParams) -> Dict[str, float]:
     logger.info(f"training with params: {params}")
     data = pd.read_csv(params.input_data_path)
     logger.info(f"dataset shape is: {data.shape}")
@@ -43,9 +44,9 @@ def train_pipeline(params: TrainingPipelineParams):
     val_features = make_features(transformer, val)
     val_target = val[params.target_column]
     logging.info(f"validation features shape is: {val_features.shape}")
-    predictions = predict_model(model, val_features)
+    predictions, probas = predict_model(model, val_features)
 
-    metrics = evaluate_model(predictions, val_target)
+    metrics = evaluate_model(predictions, probas, val_target)
     with open(params.metric_path, "w") as metrics_file:
         json.dump(metrics, metrics_file)
     logger.info(f"metrics are: {metrics}")

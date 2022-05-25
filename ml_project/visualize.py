@@ -4,6 +4,7 @@ import hydra
 import pandas as pd
 from omegaconf import DictConfig
 from pandas_profiling import ProfileReport
+
 from src.configs.train_params import (TrainingPipelineParams,
                                       TrainingPipelineParamsSchema)
 

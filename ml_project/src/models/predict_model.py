@@ -12,5 +12,7 @@ def predict_model(
     model: SklearnClassifierModel,
     features: pd.DataFrame
 ) -> np.ndarray:
+    """Makes predictions and probabilities"""
     predictions = model.predict(features)
-    return predictions
+    probas = model.predict_proba(features)
+    return predictions, probas
