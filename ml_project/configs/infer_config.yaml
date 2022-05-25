@@ -1,0 +1,4 @@
+input_data_path: "data/raw/heart_cleveland.csv"
+predictions_path: "models/predictions.csv"
+transformer_path: "models/transformer.pkl"
+model_path: "models/model.pkl"
