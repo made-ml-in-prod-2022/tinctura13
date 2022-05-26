@@ -28,13 +28,14 @@ Project Organization
 
 #### Use Docker image from Docker hub   
 
-    Here will be commands to pull my container from docker hub when I'll push it there  
+    docker pull tinctura/ml_app:v5
+    docker run -p 8099:8099 tinctura/ml_app:v5
 
 #### Build local container  
 
-    docker build -t tinctura_app .  
-    docker run -p 8099:8000 tinctura_app  
-
+    docker build -t tinctura/ml_app .  
+    docker run -p 8099:8099 tinctura/ml_app
+    
 #### Tests  
 
     pytest -v  
@@ -51,5 +52,6 @@ What I've tried:
 - Removed a lot of unnecessary packages from requirements  
 - Made as many layers as possible (I think that it's still possible to optimize copy commands)  
 
-As a result I acieved about 0.4gb size at my local storage   
-Later will push it to docker hub and will check how it goes  
+As a result I acieved about 0.4gb size at my local storage  
+Great news! At docker hub my compressed image weighsts only 129mb  
+So I've reduced the size more than 10 times, cool! ⚗️
