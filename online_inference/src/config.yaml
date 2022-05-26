@@ -1,5 +1,5 @@
 host: '0.0.0.0'
-port: 8000
+port: 8099
 model_path: 'model/model.pkl'
 transformer_path: 'model/transformer.pkl'
 logging:
