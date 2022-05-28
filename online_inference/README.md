@@ -28,8 +28,8 @@ Project Organization
 
 #### Use Docker image from Docker hub   
 
-    docker pull tinctura/ml_app:v5
-    docker run -p 8099:8099 tinctura/ml_app:v5
+    docker pull tinctura/ml_app:v6
+    docker run -p 8099:8099 tinctura/ml_app:v6
 
 #### Build local container  
 
