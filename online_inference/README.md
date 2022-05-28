@@ -19,7 +19,7 @@ Project Organization
     ├── make_request.py            <- Script to generate requests for API  
     ├── README.md                  <- The top-level README for developers using this project  
     ├── requiriments.txt           <- The requirements file  
-    └── test_app.py                <- Test for API  
+    └── test_main.py               <- Test for API  
   
 --------  
   
