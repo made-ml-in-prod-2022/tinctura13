@@ -5,12 +5,11 @@ from typing import List, Union
 
 import pandas as pd
 import yaml
+from fastapi import HTTPException
 from pydantic import BaseModel, conlist
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-
-from src.features import CAT_FEATS, COL_ORDER, NUM_FEATS
 
 SkleratnClassifierModel = Union[LogisticRegression, RandomForestClassifier]
 CONFIG_PATH = "src/config.yaml"
@@ -58,6 +57,8 @@ def prediction(
     model: SkleratnClassifierModel,
     transformer: ColumnTransformer,
 ) -> List[ModelResponse]:
+    if len(data) == 0:
+        raise HTTPException(status_code=400, detail="Input data list is empty")
     data = pd.DataFrame(data, columns=feature_names)
     transfromed_data = pd.DataFrame(transformer.transform(data))
     predictions = model.predict(transfromed_data)
