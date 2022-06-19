@@ -40,8 +40,6 @@ Project Organization
     │   └── mlflow  
     │       ├── Dockerfile   
     │       └── requirements.txt                
-    ├── tests                      
-    │   └── test_dags.py                            <- Test for DAGs
     ├── docker-compose.yml                          <- Docker compose config   
     └── README.md                                   <- README for using this project
   
@@ -51,6 +49,11 @@ Project Organization
 ------------  
 
 #### Build & run
+At first you should build `airflow-ml-base` container with:
+```
+docker build --tag airflow-ml-base:latest .
+```
+Then you can run
 ```
 sudo docker compose up --build
 ```
@@ -58,8 +61,4 @@ sudo docker compose up --build
 ```
 ^C (cntrl-C)
 docker compose down
-```
-#### Tests
-```
-pytest -v
 ```
