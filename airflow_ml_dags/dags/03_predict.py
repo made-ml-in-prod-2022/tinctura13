@@ -1,4 +1,3 @@
-import os
 from datetime import timedelta
 
 from airflow import DAG
@@ -35,13 +34,13 @@ with DAG(
         external_dag_id="02_train",
         check_existence=True,
         execution_delta=timedelta(days=1),
-        timeout=120,
+        timeout=60,
     )
     predict = DockerOperator(
         task_id="generate-predicts",
         image="airflow-predict",
         command="--input-dir /data/raw/{{ ds }} --output-dir /data/predictions/{{ ds }}"
-        f" --model-name {os.environ['MODEL_NAME']}"
+        f" --model-name {model_name}"
         " --transformer-dir /data/transformers/{{ ds }}",
         network_mode="host",
         private_environment=mlflow_env,

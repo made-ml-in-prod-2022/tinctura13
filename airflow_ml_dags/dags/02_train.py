@@ -18,13 +18,15 @@ with DAG(
         task_id="await-features",
         poke_interval=10,
         retries=100,
-        filepath="data/raw/{{ ds }}/data.csv",
+        # fs_conn_id="MY_CONN",
+        filepath="data/raw/{{ ds }}/data.csv"
     )
     target_await = FileSensor(
         task_id="await-target",
         poke_interval=10,
         retries=100,
-        filepath="data/raw/{{ ds }}/target.csv",
+        # fs_conn_id="MY_CONN",
+        filepath="data/raw/{{ ds }}/target.csv"
     )
     split = DockerOperator(
         task_id="split-data",
