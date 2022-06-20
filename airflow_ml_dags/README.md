@@ -51,14 +51,14 @@ Project Organization
 #### Build & run
 At first you should build `airflow-ml-base` container with:
 ```
-docker build --tag airflow-ml-base:latest .
+sudo docker build --tag airflow-ml-base:latest .
 ```
-Then you can run
+Then you can run (user and password for alert)
 ```
-sudo docker compose up --build
+sudo GUSER=<email> GPASS=<pw> docker compose up --build
 ```
 #### Stop & remove containers
 ```
 ^C (cntrl-C)
-docker compose down
+sudo docker compose down
 ```
